@@ -8,6 +8,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.setTitle("GalleryApp");
+
         imgCard = findViewById(R.id.imgCard);
         tvName = findViewById(R.id.tvName);
         tvDetais = findViewById(R.id.tvDetails);
@@ -54,6 +59,36 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         updateCard();
 
     }
+    // Show the Menu on the app
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+   }
+
+    // React to the clicking of a menu item.
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item)
+   {
+      int id = item.getItemId();
+
+     if (id == R.id.bulbasaur)
+       {
+      Log.d(TAG, "onOptionsItemSelected: " + (String)item.getTitle());
+            //Do something for settings
+      } else if (id == R.id.charmander)
+      {
+      Log.d(TAG, "onOptionsItemSelected: " + (String)item.getTitle());
+
+      }else
+      {
+       Log.d(TAG, "onOptionsItemSelected: " + (String)item.getTitle());
+      }
+
+      return super.onOptionsItemSelected(item);
+   }
+
 
     private void setInfo()
     {
