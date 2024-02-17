@@ -72,21 +72,26 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
    public boolean onOptionsItemSelected(MenuItem item)
    {
       int id = item.getItemId();
+      isFront = true;
 
-     if (id == R.id.bulbasaur)
+       if (id == R.id.bulbasaur)
        {
-      Log.d(TAG, "onOptionsItemSelected: " + (String)item.getTitle());
-            //Do something for settings
+            Log.d(TAG, "onOptionsItemSelected: " + (String)item.getTitle());
+            //Do something for bulbasaur
+            cardNo = 0;
+
       } else if (id == R.id.charmander)
       {
-      Log.d(TAG, "onOptionsItemSelected: " + (String)item.getTitle());
+            Log.d(TAG, "onOptionsItemSelected: " + (String)item.getTitle());
+            cardNo = 1;
 
       }else
       {
-       Log.d(TAG, "onOptionsItemSelected: " + (String)item.getTitle());
+            Log.d(TAG, "onOptionsItemSelected: " + (String)item.getTitle());
+            cardNo = 2;
       }
-
-      return super.onOptionsItemSelected(item);
+       updateCard();
+       return super.onOptionsItemSelected(item);
    }
 
 
